@@ -1,7 +1,7 @@
 {
-  "name": "FigmaExportStylesToMauiPlugin",
+  "name": "export-styles-to-maui",
   "version": "1.0.0",
-  "description": "Your Figma Plugin",
+  "description": "Export Figma styles as .xaml/.cs files",
   "main": "code.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",

@@ -1,13 +1,14 @@
 {
-  "name": "FigmaExportStylesToMauiPlugin",
+  "name": "export-styles-to-maui",
   "id": "1428667816854969976",
   "api": "1.0.0",
   "main": "code.js",
-  "capabilities": [],
+  "capabilities": ["codegen", "vscode"],
   "enableProposedApi": false,
   "documentAccess": "dynamic-page",
-  "editorType": [
-    "figma"
+  "editorType": ["dev"],
+  "codegenLanguages": [
+    {"label": "XAML/C#", "value": "xaml/cs"}
   ],
   "networkAccess": {
     "allowedDomains": [
