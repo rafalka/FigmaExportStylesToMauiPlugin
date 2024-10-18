@@ -132,7 +132,7 @@ function AddOutput(outputs: Map<string, string>, key: string, value: string)
 
 function getFigmaRGBColorHex(color: RGB, opacity?: number):string
 {
-  return getFigmaColorHex(color.r, color.g, color.b, opacity != undefined ? 1-opacity : 0);
+  return getFigmaColorHex(color.r, color.g, color.b, opacity);
 }
 
 function getFigmaRGBAColorHex(color: RGBA):string
@@ -141,7 +141,8 @@ function getFigmaRGBAColorHex(color: RGBA):string
 }
 
 function getFigmaColorHex(r: number, g: number, b: number, alpha?: number) : string {
-  let hex = alpha != undefined && alpha != 0 ? figmaColorToHex(alpha) : '';
+  if (alpha == undefined) alpha = 1;
+  let hex = figmaColorToHex(alpha);
   hex += figmaColorToHex(r);
   hex += figmaColorToHex(g);
   hex += figmaColorToHex(b);
