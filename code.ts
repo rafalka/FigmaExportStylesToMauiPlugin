@@ -25,8 +25,8 @@ if (figma.editorType === "dev" && figma.mode === "codegen") {
 
 
 
-const  XamlColors:string = 'StaticColors.xaml'
-const  CsColors:string = 'StaticColors.xaml.cs'
+const  XamlColors:string = 'StaticXamlColors.xaml'
+const  CsColors:string = 'StaticColors.cs'
 const  CsHexColors:string = 'HexColors.cs'
 const  XamlBrushes:string = 'StaticBrushes.xaml'
 const  XamlTextStyles:string = 'TextStyles.xaml'
@@ -35,6 +35,7 @@ async function GenerateFigmaStyles(): Promise<Map<string, string>> {
   let outputs = new Map<string, string>();
 
   let paintStyles = await figma.getLocalPaintStylesAsync();
+  paintStyles.sort( (a,b) => a.name.localeCompare(b.name));
   paintStyles.forEach(paintStyle => {
         paintStyle.paints.forEach(paint => {
           // let name = (paint.blendMode != undefined) ? `${paintStyle.name}${camelize(paint.blendMode)}` : paintStyle.name;
@@ -49,6 +50,7 @@ async function GenerateFigmaStyles(): Promise<Map<string, string>> {
       });
 
   let textStyles = await figma.getLocalTextStylesAsync();
+  textStyles.sort( (a,b) => a.name.localeCompare(b.name));
   generateTextStyleResources(outputs, textStyles);
 
 
